@@ -25,6 +25,7 @@ import {
   Settings,
   Menu,
   X,
+  Upload,
 } from "lucide-react";
 
 interface NavItem {
@@ -77,6 +78,7 @@ const navigation: NavSection[] = [
     title: "System",
     items: [
       { label: "Activity Log", href: "/activity", icon: History },
+      { label: "Data Import", href: "/import", icon: Upload },
       { label: "Forecasting", href: "/forecasting", icon: TrendingUp, disabled: true },
       { label: "Settings", href: "/settings", icon: Settings },
     ],

@@ -6,6 +6,7 @@ import { syncRouter } from "./routers/sync";
 import { keywordsRouter } from "./routers/keywords";
 import { activityRouter } from "./routers/activity";
 import { commentsRouter } from "./routers/comments";
+import { csvImportRouter } from "./routers/csv-import";
 
 export const appRouter = router({
   overview: overviewRouter,
@@ -15,6 +16,7 @@ export const appRouter = router({
   keywords: keywordsRouter,
   activity: activityRouter,
   comments: commentsRouter,
+  csvImport: csvImportRouter,
 });
 
 export type AppRouter = typeof appRouter;

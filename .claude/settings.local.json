@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(textutil -convert txt -stdout \"/Users/wajahatshaikh/Downloads/Syntax Formulas.docx\")",
+      "Bash(python3 -c \":*)",
+      "Bash(python3 -c \"import docx; print\\(''python-docx available''\\)\")",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)",
+      "Bash(find \"/Users/wajahatshaikh/PMP Systems/docs\" -name \"*.md\" -exec wc -l {} +)",
+      "Bash(sort -t: -k2 -n)",
+      "Bash(npm --version)",
+      "Bash(find '/Users/wajahatshaikh/PMP Systems/' -name *.md -o -name *.txt -o -name *.pdf)",
+      "Bash(npx create-next-app@14 . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Read(//Users/wajahatshaikh/**)",
+      "Bash(npx create-next-app@14 pmp-systems --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(cp -r \"/Users/wajahatshaikh/PMP Systems/docs\" \"/Users/wajahatshaikh/pmp-systems/docs\")",
+      "Bash(cp -r \"/Users/wajahatshaikh/PMP Systems/.claude\" \"/Users/wajahatshaikh/pmp-systems/.claude\")"
+    ]
+  }
+}

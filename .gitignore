@@ -27,9 +27,23 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env.local
 
 # vercel
 .vercel
+
+# railway
+.railway
+
+# drizzle
+drizzle/meta
+
+# IDE
+.idea
+.vscode
+
+# claude
+.claude/
 
 # typescript
 *.tsbuildinfo

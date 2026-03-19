@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx drizzle-kit push --force && next build",
+    "db:push": "npx drizzle-kit push --force",
+    "db:seed": "npx tsx src/server/db/seed.ts",
+    "db:studio": "npx drizzle-kit studio",
     "start": "next start",
     "lint": "next lint"
   },

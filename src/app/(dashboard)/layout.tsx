@@ -5,14 +5,11 @@ import { Topbar } from "@/components/layout/topbar";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-zinc-950">
-      {/* Sidebar - fixed height */}
+    <div style={{ display: "flex", height: "100vh", overflow: "hidden", backgroundColor: "var(--bg-primary)" }}>
       <Sidebar />
-
-      {/* Main area */}
-      <div className="flex flex-1 flex-col min-w-0 h-full">
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", height: "100vh", overflow: "hidden" }}>
         <Topbar />
-        <main className="flex-1 overflow-y-auto overflow-x-hidden p-6 bg-zinc-950">
+        <main style={{ flex: 1, overflowY: "auto", padding: 32 }}>
           {children}
         </main>
       </div>

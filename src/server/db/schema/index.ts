@@ -12,3 +12,4 @@ export * from "./account-metrics";
 export * from "./sync";
 export * from "./activity-log";
 export * from "./comments";
+export * from "./inventory";

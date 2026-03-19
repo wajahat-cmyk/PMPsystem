@@ -7,6 +7,10 @@ import { keywordsRouter } from "./routers/keywords";
 import { activityRouter } from "./routers/activity";
 import { commentsRouter } from "./routers/comments";
 import { csvImportRouter } from "./routers/csv-import";
+import { syntaxRouter } from "./routers/syntax";
+import { rootsRouter } from "./routers/roots";
+import { actionPlanRouter } from "./routers/action-plan";
+import { inventoryRouter } from "./routers/inventory";
 
 export const appRouter = router({
   overview: overviewRouter,
@@ -17,6 +21,10 @@ export const appRouter = router({
   activity: activityRouter,
   comments: commentsRouter,
   csvImport: csvImportRouter,
+  syntax: syntaxRouter,
+  roots: rootsRouter,
+  actionPlan: actionPlanRouter,
+  inventory: inventoryRouter,
 });
 
 export type AppRouter = typeof appRouter;

@@ -46,7 +46,7 @@ const navigation: NavSection[] = [
     title: "Command Center",
     items: [
       { label: "Overview", href: "/overview", icon: LayoutDashboard },
-      { label: "Action Plan", href: "/action-plan", icon: Target, disabled: true, badge: "Phase 2" },
+      { label: "Action Plan", href: "/action-plan", icon: Target },
     ],
   },
   {
@@ -60,8 +60,8 @@ const navigation: NavSection[] = [
     title: "Intelligence",
     items: [
       { label: "Keyword Engine", href: "/keywords", icon: Search },
-      { label: "Root Analysis", href: "/root-analysis", icon: TreePine, disabled: true },
-      { label: "Syntax Analysis", href: "/syntax-analysis", icon: Code, disabled: true },
+      { label: "Root Analysis", href: "/roots", icon: TreePine },
+      { label: "Syntax Analysis", href: "/syntax", icon: Code },
       { label: "Variation Analysis", href: "/variation-analysis", icon: GitBranch, disabled: true },
       { label: "Marketplace Tracking", href: "/marketplace-tracking", icon: Globe, disabled: true },
     ],
@@ -71,7 +71,7 @@ const navigation: NavSection[] = [
     items: [
       { label: "Optimization", href: "/optimization", icon: Sliders, disabled: true },
       { label: "Agents", href: "/agents", icon: Bot, disabled: true },
-      { label: "Inventory", href: "/inventory", icon: Package, disabled: true },
+      { label: "Inventory", href: "/inventory", icon: Package },
     ],
   },
   {

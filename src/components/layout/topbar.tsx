@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Settings, Sun, Moon } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const routeLabels: Record<string, string> = {
   "/overview": "Executive Overview",
@@ -32,7 +32,26 @@ function getPageTitle(pathname: string): string {
 
 export function Topbar() {
   const pathname = usePathname();
-  const [isDark, setIsDark] = useState(true);
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("pmp-theme") || "dark";
+    setTheme(saved);
+  }, []);
+
+  function toggleTheme() {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("pmp-theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    } else {
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    }
+  }
 
   const currentDate = new Date().toLocaleDateString("en-US", {
     year: "numeric",
@@ -53,7 +72,7 @@ export function Topbar() {
         minHeight: 70,
       }}
     >
-      {/* Left — App Title */}
+      {/* Left */}
       <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
         <div
           style={{
@@ -65,7 +84,7 @@ export function Topbar() {
             gap: 8,
           }}
         >
-          <Settings size={24} color="var(--accent)" />
+          <Settings size={24} style={{ color: "var(--accent)" }} />
           <span>PMP Systems</span>
         </div>
         <div
@@ -80,19 +99,10 @@ export function Topbar() {
         </div>
       </div>
 
-      {/* Right — Controls */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 32,
-          color: "var(--text-secondary)",
-          fontSize: 14,
-        }}
-      >
-        {/* Theme Toggle */}
+      {/* Right */}
+      <div style={{ display: "flex", alignItems: "center", gap: 32, color: "var(--text-secondary)", fontSize: 14 }}>
         <button
-          onClick={() => setIsDark(!isDark)}
+          onClick={toggleTheme}
           style={{
             background: "none",
             border: "1px solid var(--border-color)",
@@ -105,15 +115,13 @@ export function Topbar() {
             color: "var(--text-secondary)",
             transition: "all 0.2s ease",
           }}
-          title="Toggle theme"
+          title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
         >
-          {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
         </button>
 
-        {/* Date */}
         <span>{currentDate}</span>
 
-        {/* Operator */}
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span>Wajahat S.</span>
           <div
@@ -121,7 +129,7 @@ export function Topbar() {
               width: 32,
               height: 32,
               borderRadius: "50%",
-              background: "linear-gradient(135deg, var(--accent), #ec4899)",
+              background: "linear-gradient(135deg, #6366f1, #ec4899)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

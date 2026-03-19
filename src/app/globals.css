@@ -2,8 +2,9 @@
 @import "shadcn/tailwind.css";
 
 /* ============================================
-   PMP Systems — Design System
-   Based on reference dashboard theme
+   PMP Systems — Unified Design System
+   Ensures ALL pages + shadcn components match
+   the reference dashboard theme
    ============================================ */
 
 :root {
@@ -24,78 +25,241 @@
   --radius: 0.5rem;
 }
 
+/* Light mode overrides */
+[data-theme="light"] {
+  --bg-primary: #f8f9fc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f3f9;
+  --border-color: #e2e8f0;
+  --text-primary: #1a202c;
+  --text-secondary: #64748b;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
 @layer base {
+  /* ---- shadcn token mapping (dark = default) ---- */
   :root {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
+    --background: #0f1117;
+    --foreground: #e6edf3;
+    --card: #1a1d27;
+    --card-foreground: #e6edf3;
+    --popover: #1a1d27;
+    --popover-foreground: #e6edf3;
+    --primary: #6366f1;
+    --primary-foreground: #ffffff;
+    --secondary: #21242e;
+    --secondary-foreground: #e6edf3;
+    --muted: #21242e;
+    --muted-foreground: #8b949e;
+    --accent: #21242e;
+    --accent-foreground: #e6edf3;
+    --destructive: #ef4444;
+    --border: #2a2d3a;
+    --input: #2a2d3a;
+    --ring: #6366f1;
     --chart-1: #6366f1;
     --chart-2: #10b981;
     --chart-3: #f59e0b;
     --chart-4: #ef4444;
     --chart-5: #3b82f6;
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --radius: 0.5rem;
+    --sidebar: #1a1d27;
+    --sidebar-foreground: #e6edf3;
+    --sidebar-primary: #6366f1;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #21242e;
+    --sidebar-accent-foreground: #e6edf3;
+    --sidebar-border: #2a2d3a;
+    --sidebar-ring: #6366f1;
   }
+
+  /* Light mode for shadcn tokens */
+  [data-theme="light"] {
+    --background: #f8f9fc;
+    --foreground: #1a202c;
+    --card: #ffffff;
+    --card-foreground: #1a202c;
+    --popover: #ffffff;
+    --popover-foreground: #1a202c;
+    --primary: #6366f1;
+    --primary-foreground: #ffffff;
+    --secondary: #f1f3f9;
+    --secondary-foreground: #1a202c;
+    --muted: #f1f3f9;
+    --muted-foreground: #64748b;
+    --accent: #f1f3f9;
+    --accent-foreground: #1a202c;
+    --destructive: #ef4444;
+    --border: #e2e8f0;
+    --input: #e2e8f0;
+    --ring: #6366f1;
+    --sidebar: #ffffff;
+    --sidebar-foreground: #1a202c;
+    --sidebar-primary: #6366f1;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #f1f3f9;
+    --sidebar-accent-foreground: #1a202c;
+    --sidebar-border: #e2e8f0;
+    --sidebar-ring: #6366f1;
+  }
+
+  /* Remove .dark class dependency — we use data-theme instead */
   .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --background: #0f1117;
+    --foreground: #e6edf3;
+    --card: #1a1d27;
+    --card-foreground: #e6edf3;
+    --popover: #1a1d27;
+    --popover-foreground: #e6edf3;
+    --primary: #6366f1;
+    --primary-foreground: #ffffff;
+    --secondary: #21242e;
+    --secondary-foreground: #e6edf3;
+    --muted: #21242e;
+    --muted-foreground: #8b949e;
+    --accent: #21242e;
+    --accent-foreground: #e6edf3;
+    --destructive: #ef4444;
+    --border: #2a2d3a;
+    --input: #2a2d3a;
+    --ring: #6366f1;
+    --sidebar: #1a1d27;
+    --sidebar-foreground: #e6edf3;
+    --sidebar-primary: #6366f1;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #21242e;
+    --sidebar-accent-foreground: #e6edf3;
+    --sidebar-border: #2a2d3a;
+    --sidebar-ring: #6366f1;
   }
+
   * {
     border-color: var(--border);
     outline-color: var(--ring);
   }
+
   body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     line-height: 1.6;
   }
+}
+
+/* ============================================
+   Global component overrides
+   Force ALL shadcn + Tailwind pages to match
+   ============================================ */
+
+/* Buttons - primary should use our accent */
+button[data-slot="button"] {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+/* Cards get proper dark bg */
+[data-slot="card"] {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+  border-radius: 8px;
+}
+
+/* Tables */
+table {
+  font-size: 13px;
+}
+thead {
+  background-color: var(--bg-tertiary) !important;
+}
+th {
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 11px !important;
+}
+td {
+  border-bottom-color: var(--border-color) !important;
+}
+tbody tr:hover {
+  background-color: var(--bg-tertiary) !important;
+}
+
+/* Inputs */
+input, select, textarea {
+  background-color: var(--bg-tertiary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.6;
+}
+
+/* Labels */
+label {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Badges */
+[data-slot="badge"] {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Dialogs */
+[data-slot="dialog-content"] {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+[data-slot="dialog-overlay"] {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Dropdowns / Select */
+[data-slot="select-content"],
+[data-slot="dropdown-menu-content"] {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Separator */
+[data-slot="separator"] {
+  background-color: var(--border-color) !important;
+}
+
+/* Skeleton loading */
+[data-slot="skeleton"] {
+  background-color: var(--bg-tertiary) !important;
+}
+
+/* Fix file inputs */
+input[type="file"] {
+  background-color: var(--bg-tertiary) !important;
+}
+input[type="file"]::file-selector-button {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+/* Page header patterns used across old pages */
+.page-header-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 /* Scrollbar */
@@ -112,4 +276,23 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--text-secondary);
+}
+
+/* Light mode scrollbar */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+/* Spin animation for loaders */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Smooth transitions for theme switching */
+body, .sidebar, nav, header, main, [data-slot="card"], button, input, select, textarea {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

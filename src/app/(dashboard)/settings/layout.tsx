@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { PageHeader } from "@/components/layout/page-header";
 
-const settingsTabs = [
+const tabs = [
   { label: "Credentials", href: "/settings/credentials" },
   { label: "Products", href: "/settings/products" },
   { label: "Sync", href: "/settings/sync" },
@@ -16,28 +14,49 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
 
   return (
     <div>
-      <PageHeader
-        title="Settings"
-        description="Manage API credentials, products, and sync configuration."
-      />
-      <div className="mb-6 border-b border-zinc-800">
-        <nav className="flex gap-6">
-          {settingsTabs.map((tab) => (
+      {/* Page Header */}
+      <div style={{ marginBottom: 24 }}>
+        <div style={{ fontSize: 24, fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>
+          Settings
+        </div>
+        <div style={{ fontSize: 13, color: "var(--text-secondary)" }}>
+          Manage API credentials, products, and sync configuration.
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div
+        style={{
+          display: "flex",
+          gap: 0,
+          borderBottom: "1px solid var(--border-color)",
+          marginBottom: 32,
+        }}
+      >
+        {tabs.map((tab) => {
+          const isActive = pathname === tab.href || pathname.startsWith(tab.href + "/");
+          return (
             <Link
               key={tab.href}
               href={tab.href}
-              className={cn(
-                "pb-3 text-sm font-medium transition-colors border-b-2",
-                pathname === tab.href
-                  ? "border-blue-500 text-white"
-                  : "border-transparent text-zinc-400 hover:text-white"
-              )}
+              style={{
+                padding: "12px 24px",
+                fontSize: 14,
+                fontWeight: 600,
+                color: isActive ? "var(--accent)" : "var(--text-secondary)",
+                borderBottom: isActive ? "2px solid var(--accent)" : "2px solid transparent",
+                textDecoration: "none",
+                transition: "all 0.2s ease",
+                cursor: "pointer",
+              }}
             >
               {tab.label}
             </Link>
-          ))}
-        </nav>
+          );
+        })}
       </div>
+
+      {/* Content */}
       {children}
     </div>
   );
